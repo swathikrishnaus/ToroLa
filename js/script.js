@@ -5,7 +5,6 @@ $('#toggle').click(function() {
   $('.overlay-menu a').click(function() {
     $('.button_container').toggleClass('active');
     $('#overlay').toggleClass('open');
-    return false;
   });
 
 
@@ -21,3 +20,33 @@ $(document).scroll(function () {
 })
 
 //   ------------nav shadow--------------------
+
+
+
+// ------------------------services---------------------------
+
+$(".ser-btn").click(function () {
+  var accid = $(this).attr("aria-heading");
+  if ($("#" + accid + " .accordion-button").hasClass("ser-btn-active")) {
+    $("#" + accid + " .accordion-button").removeClass("ser-btn-active");
+  } else {
+    $(".accordion-button").removeClass("ser-btn-active");
+    $("#" + accid)
+      .find(".accordion-button")
+      .addClass("ser-btn-active");
+    $("html, body").animate(
+      {
+        scrollTop: $("#" + accid).offset().top,
+      },
+      500
+    );
+  }
+});
+
+$(".accordion-button").click(function () {
+  var accid = $(this).attr("aria-id");
+  $("#" + accid).click();
+});
+
+
+// ------------------------services---------------------------
